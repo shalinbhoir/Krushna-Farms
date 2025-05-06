@@ -1,0 +1,134 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+  border-radius: 12px;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  margin-top: 30px;
+  color: #00796b;
+  font-size: 1.4em;
+}
+
+pre {
+  background: #f1f8e9;
+  padding: 15px;
+  border-left: 6px solid #8bc34a;
+  font-family: 'Courier New', monospace;
+  font-size: 1em;
+  margin-top: 10px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note {
+  margin-top: 20px;
+  font-style: italic;
+  color: #d84315;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+  display: block;
+  margin: 25px auto 0 auto;
+  margin-top: 25px;
+  background-color: #08813f;
+  color: white;
+  padding: 14px 28px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button i {
+  margin-right: 8px;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5c;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95em;
+  color: #555;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #00796b;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  pre {
+    font-size: 0.95em;
+  }
+
+  header img {
+    max-height: 120px;
+  }
+
+  .whatsapp-button {
+    width: 100%;
+    font-size: 1em;
+    padding: 12px;
+  }
+}
