@@ -29,7 +29,10 @@ header img {
   max-height: 180px;
   border-radius: 12px;
 }
-
+red-bold {
+    color: red;
+    font-weight: bold;
+  }
 main {
   max-width: 800px;
   margin: 0 auto;
