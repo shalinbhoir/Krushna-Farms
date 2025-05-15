@@ -92,10 +92,7 @@ pre {
   border-bottom: none;
 }
 
-.red-bold {
-  color: #d84315;
-  font-weight: bold;
-}
+
 
 @media screen and (max-width: 600px) {
   .availability-table th,
