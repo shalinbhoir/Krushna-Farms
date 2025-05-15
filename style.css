@@ -108,7 +108,7 @@ pre {
 
 .red-bold {
   color: red;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 @media screen and (max-width: 600px) {
