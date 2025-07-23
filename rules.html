@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krushna Farms - Available Dates</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img src="logo_4.png" alt="Krushna Farms Logo" />
+  </header>
+
+  <nav class="top-nav">
+    <a href="photos.html"><i class="fas fa-image"></i> Photos/Videos</a>
+    <a href="rates.html"><i class="fas fa-rupee-sign"></i> Rates & Info</a>
+    <a href="rules.html"><i class="fas fa-exclamation-triangle"></i> Rules</a>
+  </nav>
+
+<main id="rulesContent">
+  <!-- This English block will be replaced when translated -->
+  <h1>Farmhouse Rules & Regulations</h1>
+<!-- Button to toggle translation -->
+<div class="translate-button-container">
+  <button id="toggleLangBtn" class="translate-btn" onclick="toggleTranslation()">
+    <i class="fas fa-language"></i> हिंदी में नियम पढ़ें
+  </button>
+</div>
+
+  <h2>♻ General Rules</h2>
+  <ol start="1">
+    <li>Smoking and hookah use are only allowed in outdoor areas like balconies or near windows. Excessive ash or burn marks will incur a fine.</li>
+    <li>Please shower before entering and after exiting the pool.</li>
+    <li>Cotton t-shirts are not allowed in the pool.</li>
+    <li>A refundable security deposit of ₹1,000 is required upon arrival.</li>
+  </ol>
+
+  <h2>🥗 Kitchen and Dining</h2>
+  <ol start="5">
+    <li>The in-house kitchen is suitable for small cooking tasks or reheating food. Please discuss elaborate cooking plans beforehand.</li>
+  </ol>
+
+  <h2>💡 Power and Electricity</h2>
+  <ol start="6">
+    <li>The farmhouse is located in a rural area and may experience rare power outages. We have an inverter backup for 3–4 hours.</li>
+    <li>In case of prolonged outage, generator backup is available at ₹300/hour (with AC) or ₹180/hour (without AC).</li>
+  </ol>
+
+  <h2>🤽🏼‍♀ Pool and Lawn</h2>
+  <ol start="8">
+    <li>Eating and drinking are not allowed inside the pool.</li>
+    <li>Using the garden lawn and pool simultaneously is not permitted.</li>
+  </ol>
+
+  <h2>🛡 Cleanliness and Hygiene</h2>
+  <ol start="10">
+    <li>Please maintain cleanliness and hygiene standards while using the bathrooms, balcony, swimming pool, lawn, and entire villa.</li>
+    <li>Chewing tobacco, paan, etc., and spitting in the farmhouse bathroom and surroundings are not allowed and will incur a fine.</li>
+    <li>Extra cleaning charges of ₹500 will be applied for vomiting, hookah ashes inside the villa, alcohol spillage, or paan spits.</li>
+  </ol>
+
+  <h2>🔒 Safety and Security</h2>
+  <ol start="13">
+    <li>Guests are responsible for their valuable items.</li>
+    <li>Drugs, prostitution, and other narcotics activities are strictly prohibited.</li>
+  </ol>
+
+  <h2>🌮 Food and Services</h2>
+  <ol start="15">
+    <li>In-house prepared food can be delivered upon request. Please discuss your requirements with the caretaker beforehand.</li>
+  </ol>
+
+  <h2>🎺 Entertainment</h2>
+  <ol start="16">
+    <li>50Watts Speaker (included in the package)</li>
+    <li>Mini DJ (₹600)<br>Guests can also bring their own sound system. Music volume should be low or off from 11 pm to 6 am.</li>
+  </ol>
+
+  <h2>🚏 Additional Rules</h2>
+  <ol start="18">
+    <li>WiFi is a complimentary service and subject to ISP and weather conditions. No complaints will be entertained.</li>
+    <li>Outside guests are not allowed during your booking slot. Guests visiting for less than 3 hours will be charged ₹250.</li>
+    <li>Any extra person above the booking capacity will be charged ₹500.<br>Please carry Aadhar ID for verification if needed for children below 5 years.</li>
+  </ol>
+
+  <h2>🌧 Monsoon Rule Alert 🌿</h2>
+  <p><strong>Playing rough sports such as Football, Cricket, or Kabaddi is strictly prohibited during or after heavy rainfall when the lawn is wet or muddy.</strong></p>
+  <ul>
+    <li>Prevent injuries due to slipping.</li>
+    <li>Protect the garden lawn from damage.</li>
+  </ul>
+  <p>✅ Alternatively, you may use the parking area with paver block surface for playing.</p>
+</main>
+
+
+
+  <script>
+  const englishRules = document.getElementById("rulesContent").innerHTML;
+
+  const hindiRules = `
+  <h1>🏡 फार्महाउस नियम (हिंदी)</h1>
+  <h2>♻ सामान्य नियम</h2>
+  <ol start="1">
+    <li>धूम्रपान और हुक्का केवल बाहरी क्षेत्रों जैसे बालकनी या खिड़कियों के पास की अनुमति है। अधिक राख या जलने के निशान के लिए जुर्माना लगेगा।</li>
+    <li>कृपया पूल में जाने से पहले और बाहर निकलने के बाद नहाएं।</li>
+    <li>पूल में कॉटन टी-शर्ट की अनुमति नहीं है।</li>
+    <li>आगमन पर ₹1,000 की वापसी योग्य सिक्यूरिटी डिपॉजिट आवश्यक है।</li>
+  </ol>
+
+  <h2>🥗 रसोई और भोजन</h2>
+  <ol start="5">
+    <li>घर की रसोई छोटे खाना बनाने या खाना गर्म करने के लिए उपयुक्त है। विस्तृत खाना बनाने की योजना पहले से चर्चा करें।</li>
+  </ol>
+
+  <h2>💡 बिजली और पावर</h2>
+  <ol start="6">
+    <li>फार्महाउस ग्रामीण क्षेत्र में स्थित है और कभी-कभार बिजली कटौती हो सकती है। हमारे पास 3-4 घंटे के लिए इन्वर्टर बैकअप है।</li>
+    <li>लंबी बिजली कटौती की स्थिति में, जेनरेटर बैकअप ₹300/घंटा (AC के साथ) या ₹180/घंटा (AC के बिना) उपलब्ध है।</li>
+  </ol>
+
+  <h2>🤽🏼‍♀ पूल और लॉन</h2>
+  <ol start="8">
+    <li>पूल के अंदर खाना-पीना मना है।</li>
+    <li>गार्डन लॉन और पूल का एक साथ उपयोग करने की अनुमति नहीं है।</li>
+  </ol>
+
+  <h2>🛡 सफाई और स्वच्छता</h2>
+  <ol start="10">
+    <li>कृपया बाथरूम, बालकनी, स्विमिंग पूल, लॉन और पूरे विला का उपयोग करते समय सफाई और स्वच्छता का ध्यान रखें।</li>
+    <li>तंबाकू चबाना, पान आदि, और फार्महाउस के बाथरूम और आसपास थूकना मना है और इसके लिए जुर्माना लगेगा।</li>
+    <li>उल्टी करने, विला के अंदर हुक्के की राख, शराब गिराने या पान थूकने के लिए ₹500 अतिरिक्त सफाई शुल्क लगेगा।</li>
+  </ol>
+
+  <h2>🔒 सुरक्षा और सिक्यूरिटी</h2>
+  <ol start="13">
+    <li>मेहमान अपनी कीमती वस्तुओं के लिए जिम्मेदार हैं।</li>
+    <li>ड्रग्स, वेश्यावृत्ति और अन्य नशीली गतिविधियां सख्त मना हैं।</li>
+  </ol>
+
+  <h2>🌮 भोजन और सेवाएं</h2>
+  <ol start="15">
+    <li>घर का बना खाना अनुरोध पर पहुंचाया जा सकता है। कृपया अपनी आवश्यकताओं पर केयरटेकर से पहले चर्चा करें।</li>
+  </ol>
+
+  <h2>🎺 मनोरंजन</h2>
+  <ol start="16">
+    <li>50वाट स्पीकर (पैकेज में शामिल)</li>
+    <li>मिनी डीजे (₹600) मेहमान अपना साउंड सिस्टम भी ला सकते हैं। रात 11 बजे से सुबह 6 बजे तक म्यूजिक की आवाज़ कम या बंद रखें।</li>
+  </ol>
+
+  <h2>🚏 अतिरिक्त नियम</h2>
+  <ol start="18">
+    <li>WiFi एक मुफ्त सेवा है और ISP और मौसम की स्थिति पर निर्भर है। कोई शिकायत स्वीकार नहीं की जाएगी।</li>
+    <li>आपके बुकिंग स्लॉट के दौरान बाहरी मेहमानों की अनुमति नहीं है। 3 घंटे से कम समय के लिए आने वाले मेहमानों से ₹250 चार्ज किया जाएगा।</li>
+    <li>बुकिंग क्षमता से अधिक किसी भी अतिरिक्त व्यक्ति के लिए ₹500 चार्ज किया जाएगा। 5 साल से कम उम्र के बच्चों के लिए आवश्यक होने पर वेरिफिकेशन के लिए आधार ID साथ रखें।</li>
+  </ol>
+
+  <h2>🌧 मानसून नियम अलर्ट 🌿</h2>
+  <p><strong>भारी बारिश के दौरान या बाद में जब लॉन गीला या कीचड़ भरा हो तो फुटबॉल, क्रिकेट, या कबड्डी जैसे तेज़ खेल खेलना सख्त मना है।</strong></p>
+  <ul>
+    <li>फिसलने से होने वाली चोटों से बचें।</li>
+    <li>गार्डन लॉन को नुकसान से बचाएं।</li>
+  </ul>
+  <p>✅ वैकल्पिक रूप से, आप खेलने के लिए पेवर ब्लॉक सतह वाले पार्किंग एरिया का उपयोग कर सकते हैं।</p>
+  `;
+
+  let isHindi = false;
+
+  function toggleTranslation() {
+    const content = document.getElementById("rulesContent");
+    const button = document.getElementById("toggleLangBtn");
+
+    if (isHindi) {
+      content.innerHTML = englishRules;
+      button.innerHTML = `<i class="fas fa-language"></i> Translate to Hindi`;
+    } else {
+      content.innerHTML = hindiRules;
+      button.innerHTML = `<i class="fas fa-language"></i> Switch to English`;
+    }
+
+    isHindi = !isHindi;
+  }
+</script>
+
+</body>
+</html>
