@@ -148,6 +148,33 @@ pre {
   background-color: #1ebe5c;
 }
 
+.translate-button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.translate-btn {
+  background-color: #00796b;
+  color: white;
+  padding: 14px 28px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+.translate-btn i {
+  margin-right: 8px;
+}
+
+.translate-btn:hover {
+  background-color: #009688;
+}
+
+
 footer {
   text-align: center;
   padding: 20px;
@@ -249,3 +276,33 @@ footer a:hover {
       width: 100%;
       border-radius: 10px;
     }
+
+.amenity a {
+  color: #00796b;
+  text-decoration: none;
+}
+
+.amenity a:hover {
+  text-decoration: underline;
+}
+
+main h2 {
+  margin-top: 25px;
+  color: #00796b;
+  font-size: 1.3em;
+}
+
+main ul {
+  padding-left: 20px;
+  margin-top: 10px;
+  line-height: 1.7;
+}
+
+main ul li {
+  margin-bottom: 6px;
+}
+
+main p {
+  margin-top: 10px;
+  font-style: italic;
+}
