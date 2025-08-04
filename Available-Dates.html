@@ -104,6 +104,24 @@
   </div>
 </div>
 
+<script>
+  function toggleDateDropdown() {
+    const dropdown = document.getElementById('date-dropdown');
+    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function sendToWhatsApp() {
+    const selectedDate = document.getElementById('date-select').value;
+    if (!selectedDate) {
+      alert("Please select a date before continuing.");
+      return;
+    }
+    const message = encodeURIComponent("I want to book a Date - " + selectedDate);
+    const phoneNumber = "918237245909"; // No plus sign
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, "_blank");
+  }
+</script>
 
 
     </section>
@@ -118,4 +136,5 @@
   </footer>
 </body>
 </html>
+
 
