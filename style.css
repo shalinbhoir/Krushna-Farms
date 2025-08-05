@@ -306,3 +306,15 @@ main p {
   margin-top: 10px;
   font-style: italic;
 }
+
+.dropdown-style {
+  padding: 12px 16px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  width: 90%;
+  max-width: 300px;
+}
+
+
