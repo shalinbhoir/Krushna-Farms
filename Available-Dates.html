@@ -156,6 +156,7 @@
       <option value="20 Persons">More than 20 Prsn</option>
       </select>
     <br><br>
+    <p id="price-display" style="font-weight:bold; color:#00796b; margin-top:10px;"></p>
     <button onclick="sendToWhatsApp()" class="translate-btn">
       <i class="fab fa-whatsapp"></i> Send to WhatsApp
     </button>
@@ -253,7 +254,68 @@ function sendToWhatsApp() {
   window.open(url, "_blank");
 }
 </script>
+<script>
+document.getElementById('date-select').addEventListener('change', updatePrice);
+document.getElementById('person-select').addEventListener('change', updatePrice);
 
+function updatePrice() {
+  const dateSelect = document.getElementById('date-select');
+  const selectedOption = dateSelect.options[dateSelect.selectedIndex];
+  const selectedDate = selectedOption.value;
+  const selectedPerson = document.getElementById('person-select').value;
+
+  if (!selectedDate || !selectedPerson) {
+    document.getElementById('price-display').innerText = "";
+    return;
+  }
+
+  const slot = selectedOption.dataset.slot;
+
+  let persons = 0;
+  if (selectedPerson.includes("12")) persons = 12;
+  else if (selectedPerson.includes("15")) persons = 15;
+  else if (selectedPerson.includes("17")) persons = 17;
+  else if (selectedPerson.includes("20")) persons = 20;
+  else persons = 25;
+
+  let price = 0;
+  let text = "";
+
+  if (slot === "Special") {
+    text = "Price: Will be shared manually";
+  }
+
+  else if (slot === "Day" || slot === "Night") {
+    price = 4000;
+    text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
+  }
+
+  else if (slot === "SatSun") {
+    if (persons <= 15) price = 11000;
+    else if (persons <= 17) price = 12000;
+    else if (persons <= 20) price = 13000;
+    else price = 13000 + (persons - 20) * 600;
+
+    text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
+  }
+
+  else if (slot === "Weekday") {
+    if (persons <= 12) price = 7000;
+    else if (persons <= 15) price = 8000;
+    else if (persons <= 17) price = 9000;
+    else if (persons <= 20) price = 10000;
+    else price = 10000 + (persons - 20) * 500;
+
+    text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
+  }
+
+  else {
+    text = "Price not available";
+  }
+
+  document.getElementById('price-display').innerText = text;
+}
+</script>
 
     </section>
   </main>
