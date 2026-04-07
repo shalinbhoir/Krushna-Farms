@@ -155,8 +155,9 @@
       <option value="20 Persons">20 Persons</option>
       <option value="20 Persons">More than 20 Prsn</option>
       </select>
-    <br><br>
+    <br>
     <p id="price-display" style="font-weight:bold; color:#00796b; margin-top:10px;"></p>
+    <br><br>
     <button onclick="sendToWhatsApp()" class="translate-btn">
       <i class="fab fa-whatsapp"></i> Send to WhatsApp
     </button>
@@ -221,7 +222,7 @@ function sendToWhatsApp() {
     else if (persons <= 20) price = 13000;
     else price = 13000 + (persons - 20) * 600;
 
-    priceText = "Rate: " + formatINR(price);
+    priceText = "Rate: " + formatINR(price) + " (Sat/Sun)";
   }
 
   // WEEKDAY FULL
