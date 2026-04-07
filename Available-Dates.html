@@ -151,7 +151,7 @@
       <option value="">-- Select Person --</option>
       <option value="12 Persons">12 Persons  or less</option>
       <option value="15 Persons">15 Persons</option>
-      <option value="17 Persons">17 Persons</option>
+      <option value="18 Persons">18 Persons</option>
       <option value="20 Persons">20 Persons</option>
       <option value="20 Persons">More than 20 Prsn</option>
       </select>
@@ -197,7 +197,7 @@ function sendToWhatsApp() {
   let persons = 0;
   if (selectedPerson.includes("12")) persons = 12;
   else if (selectedPerson.includes("15")) persons = 15;
-  else if (selectedPerson.includes("17")) persons = 17;
+  else if (selectedPerson.includes("18")) persons = 18;
   else if (selectedPerson.includes("20")) persons = 20;
   else persons = 25;
 
@@ -211,14 +211,19 @@ function sendToWhatsApp() {
 
   // DAY / NIGHT (flat)
   else if (slot === "Day" || slot === "Night") {
-    price = 4000;
-    priceText = "Rate: " + formatINR(price);
-  }
+
+  if (persons <= 12) price = 4500;
+  else if (persons <= 15) price = 5000;
+  else if (persons <= 18) price = 6000;
+  else if (persons <= 20) price = 6500;
+
+  priceText = "Rate: " + formatINR(price);
+}
 
   // SAT/SUN FULL
   else if (slot === "SatSun") {
     if (persons <= 15) price = 11000;
-    else if (persons <= 17) price = 12000;
+    else if (persons <= 18) price = 12000;
     else if (persons <= 20) price = 13000;
     else price = 13000 + (persons - 20) * 600;
 
@@ -229,7 +234,7 @@ function sendToWhatsApp() {
   else if (slot === "Weekday") {
     if (persons <= 12) price = 7000;
     else if (persons <= 15) price = 8000;
-    else if (persons <= 17) price = 9000;
+    else if (persons <= 18) price = 9000;
     else if (persons <= 20) price = 10000;
     else price = 10000 + (persons - 20) * 500;
 
@@ -275,7 +280,7 @@ function updatePrice() {
   let persons = 0;
   if (selectedPerson.includes("12")) persons = 12;
   else if (selectedPerson.includes("15")) persons = 15;
-  else if (selectedPerson.includes("17")) persons = 17;
+  else if (selectedPerson.includes("18")) persons = 18;
   else if (selectedPerson.includes("20")) persons = 20;
   else persons = 25;
 
@@ -293,7 +298,7 @@ function updatePrice() {
 
   else if (slot === "SatSun") {
     if (persons <= 15) price = 11000;
-    else if (persons <= 17) price = 12000;
+    else if (persons <= 18) price = 12000;
     else if (persons <= 20) price = 13000;
     else price = 13000 + (persons - 20) * 600;
 
@@ -303,7 +308,7 @@ function updatePrice() {
   else if (slot === "Weekday") {
     if (persons <= 12) price = 7000;
     else if (persons <= 15) price = 8000;
-    else if (persons <= 17) price = 9000;
+    else if (persons <= 18) price = 9000;
     else if (persons <= 20) price = 10000;
     else price = 10000 + (persons - 20) * 500;
 
