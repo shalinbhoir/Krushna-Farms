@@ -316,7 +316,12 @@ else if (selectedPerson === "More") {
     else if (persons <= 15) price = 5000;
     else if (persons <= 18) price = 6000;
     else if (persons <= 20) price = 6500;
-    text = "Estimated Price: ₹ " + price.toLocaleString("en-IN") + " (ask for final pricing for this slot)";
+    //text = "Estimated Price: ₹ " + price.toLocaleString("en-IN") + " (ask for final pricing for this slot)";
+    const perHead = Math.ceil(price / persons);
+text = 
+  "Estimated Price: ₹ " + price.toLocaleString("en-IN") +
+  "<br><span style='font-size:0.9em; color:#555; font-style:italic;'>Avg. Per Head Cost: ₹ " 
+  + perHead.toLocaleString("en-IN") + "</span>";
   }
 
   else if (slot === "SatSun") {
@@ -325,7 +330,12 @@ else if (selectedPerson === "More") {
     else if (persons <= 20) price = 13000;
     else price = 13000 + (persons - 20) * 600;
 
-    text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
+    //text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
+    const perHead = Math.ceil(price / persons);
+text = 
+  "Estimated Price: ₹ " + price.toLocaleString("en-IN") +
+  "<br><span style='font-size:0.9em; color:#555; font-style:italic;'>Avg. Per Head Cost: ₹ " 
+  + perHead.toLocaleString("en-IN") + "</span>";
   }
 
   else if (slot === "Weekday") {
@@ -335,14 +345,19 @@ else if (selectedPerson === "More") {
     else if (persons <= 20) price = 10000;
     else price = persons * 500;
 
-    text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
+    //text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
+    const perHead = Math.ceil(price / persons);
+text = 
+  "Estimated Price: ₹ " + price.toLocaleString("en-IN") +
+  "<br><span style='font-size:0.9em; color:#555; font-style:italic;'>Avg. Per Head Cost: ₹ " 
+  + perHead.toLocaleString("en-IN") + "</span>";
   }
 
   else {
     text = "Price not available";
   }
 
-  document.getElementById('price-display').innerText = text;
+  document.getElementById('price-display').innerHTML = text;
 }
 </script>
 <script>
