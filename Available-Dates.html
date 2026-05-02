@@ -266,16 +266,17 @@ else if (slot === "Weekday") {
 document.getElementById('date-select').addEventListener('change', updatePrice);
 document.getElementById('person-select').addEventListener('change', updatePrice);
 
-  if (selectedPerson === "More" && !document.getElementById('extra-person-input').value) {
-  document.getElementById('price-display').innerText = "Enter number of persons";
-  return;
-}
+
 function updatePrice() {
   const dateSelect = document.getElementById('date-select');
   const selectedOption = dateSelect.options[dateSelect.selectedIndex];
   const selectedDate = selectedOption.value;
   const selectedPerson = document.getElementById('person-select').value;
 
+    if (selectedPerson === "More" && !document.getElementById('extra-person-input').value) {
+  document.getElementById('price-display').innerText = "Enter number of persons";
+  return;
+}
   if (!selectedDate || !selectedPerson) {
     document.getElementById('price-display').innerText = "";
     return;
