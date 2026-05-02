@@ -130,7 +130,7 @@
       <option value="15 Persons">15 Persons</option>
       <option value="18 Persons">18 Persons</option>
       <option value="20 Persons">20 Persons</option>
-      <option value="20 Persons">More than 20 Prsn</option>
+      <option value="More than 20">More than 20 Prsn</option>
       </select>
     <br>
     <p id="price-display" style="font-weight:bold; color:#00796b; margin-top:10px;"></p>
@@ -171,12 +171,28 @@ function sendToWhatsApp() {
   const slot = selectedOption.dataset.slot;
 
   // extract persons
-  let persons = 0;
-  if (selectedPerson.includes("12")) persons = 12;
-  else if (selectedPerson.includes("15")) persons = 15;
-  else if (selectedPerson.includes("18")) persons = 18;
-  else if (selectedPerson.includes("20")) persons = 20;
-  else persons = 25;
+let persons = 0;
+
+if (selectedPerson.includes("12")) persons = 12;
+else if (selectedPerson.includes("15")) persons = 15;
+else if (selectedPerson.includes("18")) persons = 18;
+else if (selectedPerson.includes("20") && !selectedPerson.includes("More")) persons = 20;
+
+else if (selectedPerson.includes("More")) {
+
+  let input = prompt("Enter total number of persons (more than 20):");
+
+  if (!input) return;
+
+  input = parseInt(input);
+
+  if (isNaN(input) || input <= 20) {
+    alert("Please enter a valid number greater than 20.");
+    return;
+  }
+
+  persons = input;
+}
 
   let price = 0;
   let priceText = "";
@@ -199,24 +215,24 @@ function sendToWhatsApp() {
 
   // SAT/SUN FULL
   else if (slot === "SatSun") {
-    if (persons <= 15) price = 11000;
-    else if (persons <= 18) price = 12000;
-    else if (persons <= 20) price = 13000;
-    else price = 13000 + (persons - 20) * 600;
 
-    priceText = "Rate: " + formatINR(price) + " (Sat/Sun)";
-  }
+  if (persons <= 15) price = 11000;
+  else if (persons <= 18) price = 12000;
+  else if (persons <= 20) price = 13000;
+  else price = 13000 + ((persons - 20) * 600);
+}
 
   // WEEKDAY FULL
   else if (slot === "Weekday") {
-    if (persons <= 12) price = 7000;
-    else if (persons <= 15) price = 8000;
-    else if (persons <= 18) price = 9000;
-    else if (persons <= 20) price = 10000;
-    else price = 10000 + (persons - 20) * 500;
 
-    priceText = "Rate: " + formatINR(price);
-  }
+  if (persons <= 12) price = 7000;
+  else if (persons <= 15) price = 8000;
+  else if (persons <= 18) price = 9000;
+  else if (persons <= 20) price = 10000;
+
+  // 🔥 NEW RULE
+  else price = persons * 500;
+}
 
   // fallback
   else {
