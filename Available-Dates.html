@@ -273,15 +273,15 @@ function updatePrice() {
   const selectedDate = selectedOption.value;
   const selectedPerson = document.getElementById('person-select').value;
 
-    if (selectedPerson === "More" && !document.getElementById('extra-person-input').value) {
-  document.getElementById('price-display').innerText = "Enter number of persons";
-  return;
-}
+
   if (!selectedDate || !selectedPerson) {
     document.getElementById('price-display').innerText = "";
     return;
   }
-
+    if (selectedPerson === "More" && !document.getElementById('extra-person-input').value) {
+  document.getElementById('price-display').innerText = "Enter number of persons";
+  return;
+}
   const slot = selectedOption.dataset.slot;
 
   let persons = 0;
