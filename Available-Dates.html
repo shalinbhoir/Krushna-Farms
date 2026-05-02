@@ -132,6 +132,15 @@
       <option value="20 Persons">20 Persons</option>
       <option value="More">More than 20 Prsn</option>
       </select>
+<div id="extra-person-box" style="display:none; margin-top:10px;">
+  <input 
+    type="number" 
+    id="extra-person-input"
+    placeholder="Enter total persons (>20)"
+    min="21"
+    style="padding:10px; border-radius:6px; border:1px solid #ccc; width:90%; max-width:300px;"
+  />
+</div>
     <br>
     <p id="price-display" style="font-weight:bold; color:#00796b; margin-top:10px;"></p>
     <br><br>
@@ -180,18 +189,15 @@ else if (selectedPerson.includes("20")) persons = 20;
 
 else if (selectedPerson === "More") {
 
-  let input = prompt("Enter total number of persons (must be more than 20):");
+  const input = document.getElementById('extra-person-input').value;
+  const num = parseInt(input);
 
-  if (input === null) return; // user cancelled
-
-  input = parseInt(input);
-
-  if (isNaN(input) || input <= 20) {
-    alert("Invalid input. Please enter a number greater than 20.");
+  if (!num || num <= 20) {
+    alert("Please enter a valid number greater than 20.");
     return;
   }
 
-  persons = input;
+  persons = num;
 }
 
   let price = 0;
@@ -317,6 +323,22 @@ function updatePrice() {
 
   document.getElementById('price-display').innerText = text;
 }
+</script>
+<script>
+document.getElementById('person-select').addEventListener('change', function() {
+  const value = this.value;
+  const box = document.getElementById('extra-person-box');
+
+  if (value === "More") {
+    box.style.display = "block";
+  } else {
+    box.style.display = "none";
+    document.getElementById('extra-person-input').value = "";
+  }
+});
+</script>
+<script>
+document.getElementById('extra-person-input').addEventListener('input', updatePrice);
 </script>
 
     </section>
