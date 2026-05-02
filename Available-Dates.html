@@ -189,12 +189,12 @@ else if (selectedPerson.includes("18")) persons = 18;
 else if (selectedPerson.includes("20")) persons = 20;
 
 else if (selectedPerson === "More") {
-
   const input = document.getElementById('extra-person-input').value;
   const num = parseInt(input);
 
   if (!num || num <= 20) {
-    alert("Please enter a valid number greater than 20.");
+    document.getElementById('price-display').innerText =
+      "Enter valid persons (>20)";
     return;
   }
 
@@ -227,18 +227,20 @@ else if (selectedPerson === "More") {
   else if (persons <= 18) price = 12000;
   else if (persons <= 20) price = 13000;
   else price = 13000 + ((persons - 20) * 600);
+
+  priceText = "Rate: " + formatINR(price); // ✅ ADD THIS
 }
 
   // WEEKDAY FULL
-  else if (slot === "Weekday") {
+else if (slot === "Weekday") {
 
   if (persons <= 12) price = 7000;
   else if (persons <= 15) price = 8000;
   else if (persons <= 18) price = 9000;
   else if (persons <= 20) price = 10000;
-
-  // 🔥 NEW RULE
   else price = persons * 500;
+
+  priceText = "Rate: " + formatINR(price); // ✅ ADD THIS
 }
 
   // fallback
@@ -250,7 +252,7 @@ else if (selectedPerson === "More") {
   const message = encodeURIComponent(
     "I want to book:\n" +
     "Date: " + selectedDate + "\n" +
-    "Persons: " + selectedPerson + "\n" +
+    "Persons: " + persons + "\n" +
     priceText
   );
 
@@ -264,6 +266,10 @@ else if (selectedPerson === "More") {
 document.getElementById('date-select').addEventListener('change', updatePrice);
 document.getElementById('person-select').addEventListener('change', updatePrice);
 
+  if (selectedPerson === "More" && !document.getElementById('extra-person-input').value) {
+  document.getElementById('price-display').innerText = "Enter number of persons";
+  return;
+}
 function updatePrice() {
   const dateSelect = document.getElementById('date-select');
   const selectedOption = dateSelect.options[dateSelect.selectedIndex];
@@ -278,11 +284,24 @@ function updatePrice() {
   const slot = selectedOption.dataset.slot;
 
   let persons = 0;
-  if (selectedPerson.includes("12")) persons = 12;
-  else if (selectedPerson.includes("15")) persons = 15;
-  else if (selectedPerson.includes("18")) persons = 18;
-  else if (selectedPerson.includes("20")) persons = 20;
-  else persons = 25;
+
+if (selectedPerson.includes("12")) persons = 12;
+else if (selectedPerson.includes("15")) persons = 15;
+else if (selectedPerson.includes("18")) persons = 18;
+else if (selectedPerson.includes("20")) persons = 20;
+
+else if (selectedPerson === "More") {
+  const input = document.getElementById('extra-person-input').value;
+  const num = parseInt(input);
+
+  if (!num || num <= 20) {
+    document.getElementById('price-display').innerText =
+      "Enter valid persons (>20)";
+    return;
+  }
+
+  persons = num;
+}
 
   let price = 0;
   let text = "";
@@ -313,7 +332,7 @@ function updatePrice() {
     else if (persons <= 15) price = 8000;
     else if (persons <= 18) price = 9000;
     else if (persons <= 20) price = 10000;
-    else price = 10000 + (persons - 20) * 500;
+    else price = persons * 500;
 
     text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
   }
