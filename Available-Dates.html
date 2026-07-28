@@ -36,14 +36,12 @@
                   
 
 
-<tr><td>Mon/Tue</td><td>3/4 Aug</td><td>6pm to 5pm</td></tr>
-<tr><td>Tue/Wed</td><td>4/5 Aug</td><td>6pm to 5pm</td></tr>
+<tr><td>Mon/Tue</td><td>3/4 Aug</td><td>7pm to 9am (Night)</td></tr>
 <tr><td>Wed/Thu</td><td>5/6 Aug</td><td>6pm to 5pm</td></tr>
             
 <tr><td>Mon/Tue</td><td>10/11 Aug</td><td>6pm to 5pm</td></tr>
 <tr><td>Tue/Wed</td><td>11/12 Aug</td><td>6pm to 5pm</td></tr>
 <tr><td>Wed/Thu</td><td>12/13 Aug</td><td>6pm to 5pm</td></tr>
-<tr><td>Thu/Fri</td><td>13/14 Aug</td><td>6pm to 5pm</td></tr>
             
 <tr><td>Sun/Mon</td><td>16/17 Aug</td><td>6pm to 5pm</td></tr>
 <tr><td>Mon/Tue</td><td>17/18 Aug</td><td>6pm to 5pm</td></tr>
@@ -85,14 +83,12 @@
     <select id="date-select" style="padding: 12px 16px; margin-top: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; width: 90%; max-width: 300px;">
       <option value="">-- Select a date --</option>
 
-<option data-slot="Weekday" value="3/4 Aug - 6pm to 5pm">3/4 Aug - 6pm to 5pm</option>
-<option data-slot="Weekday" value="4/5 Aug - 6pm to 5pm">4/5 Aug - 6pm to 5pm</option>
+<option data-slot="Night" value="3/4 Aug - 7pm to 9am">3/4 Aug - 7pm to 9am</option>
 <option data-slot="Weekday" value="5/6 Aug - 6pm to 5pm">5/6 Aug - 6pm to 5pm</option>
       
 <option data-slot="Weekday" value="10/11 Aug - 6pm to 5pm">10/11 Aug - 6pm to 5pm</option>
 <option data-slot="Weekday" value="11/12 Aug - 6pm to 5pm">11/12 Aug - 6pm to 5pm</option>
 <option data-slot="Weekday" value="12/13 Aug - 6pm to 5pm">12/13 Aug - 6pm to 5pm</option>
-<option data-slot="Weekday" value="13/14 Aug - 6pm to 5pm">13/14 Aug - 6pm to 5pm</option>
       
 <option data-slot="Weekday" value="16/17 Aug - 6pm to 5pm">16/17 Aug - 6pm to 5pm</option>
 <option data-slot="Weekday" value="17/18 Aug - 6pm to 5pm">17/18 Aug - 6pm to 5pm</option>
@@ -114,7 +110,8 @@
 
 <select id="person-select" style="padding: 12px 16px; margin-top: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; width: 90%; max-width: 300px;">
       <option value="">-- Select Person --</option>
-      <option value="12 Persons">12 Persons  or less</option>
+      <option value="12 Persons">10 Persons  or less</option>
+      <option value="12 Persons">12 Persons</option>
       <option value="15 Persons">15 Persons</option>
       <option value="18 Persons">18 Persons</option>
       <option value="20 Persons">20 Persons</option>
@@ -221,10 +218,11 @@ else if (selectedPerson === "More") {
   // WEEKDAY FULL
 else if (slot === "Weekday") {
 
-  if (persons <= 12) price = 7000;
-  else if (persons <= 15) price = 8000;
-  else if (persons <= 18) price = 9000;
-  else if (persons <= 20) price = 10000;
+  if (persons <= 10) price = 7000;
+  else if (persons <= 12) price = 7500;
+  else if (persons <= 15) price = 8500;
+  else if (persons <= 18) price = 9500;
+  else if (persons <= 20) price = 10500;
   else price = persons * 500;
 
   priceText = "Rate: " + formatINR(price); // ✅ ADD THIS
@@ -273,7 +271,8 @@ function updatePrice() {
 
   let persons = 0;
 
-if (selectedPerson.includes("12")) persons = 12;
+if (selectedPerson.includes("10")) persons = 10;
+else if (selectedPerson.includes("12")) persons = 12;
 else if (selectedPerson.includes("15")) persons = 15;
 else if (selectedPerson.includes("18")) persons = 18;
 else if (selectedPerson.includes("20")) persons = 20;
@@ -326,10 +325,11 @@ text =
   }
 
   else if (slot === "Weekday") {
-    if (persons <= 12) price = 7000;
-    else if (persons <= 15) price = 8000;
-    else if (persons <= 18) price = 9000;
-    else if (persons <= 20) price = 10000;
+    if (persons <= 10) price = 7000;
+    else if (persons <= 12) price = 7500;
+    else if (persons <= 15) price = 8500;
+    else if (persons <= 18) price = 9500;
+    else if (persons <= 20) price = 10500;
     else price = persons * 500;
 
     //text = "Estimated Price: ₹ " + price.toLocaleString("en-IN");
