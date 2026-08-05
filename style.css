@@ -317,4 +317,23 @@ main p {
   max-width: 300px;
 }
 
+/* Booked Dates */
+.booked-row {
+  background-color: #ffebee;
+}
+
+.booked-row td {
+  color: #757575;
+}
+
+.booked-row td:nth-child(2) {
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+.booked-row td:last-child {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
 
